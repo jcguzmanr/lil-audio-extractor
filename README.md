@@ -111,6 +111,34 @@ lil-audio-extractor/
 - UI tests para drag & drop
 - Videos de prueba en TestAssets/ (< 1MB)
 
+## 🚀 Roadmap Futuro
+
+### **Fase 1: Mejora de Calidad de Audio** 🎧
+- **Procesamiento de audio inteligente**: Algoritmos para mejorar la claridad de la voz
+- **Reducción de ruido**: Eliminar ruido de fondo automáticamente
+- **Normalización de volumen**: Niveles de audio consistentes
+- **Filtros de frecuencia**: Optimización para diferentes tipos de contenido (voz, música, etc.)
+
+### **Fase 2: Optimización de Contenido** ✂️
+- **Eliminación de filler words**: Detección y remoción automática de "um", "ah", "este", etc.
+- **Detección de silencios**: Recorte inteligente de pausas largas y espacios sin sonido
+- **Segmentación automática**: División en capítulos o secciones basada en el contenido
+- **Compresión inteligente**: Reducir duración manteniendo información relevante
+
+### **Fase 3: PBB3 - Transcripción con AI** 🤖
+- **Integración con AI**: Implementación de modelos de speech-to-text de última generación
+- **Transcripción automática**: Conversión completa de audio a texto
+- **Detección de idiomas**: Soporte multiidioma automático
+- **Formateo inteligente**: Párrafos, puntuación y estructura automática
+- **Exportación de transcripciones**: Múltiples formatos (TXT, MD, DOCX, SRT)
+- **Sincronización temporal**: Timestamps para cada segmento de texto
+
+### **Futuro Lejano: Características Avanzadas** 🔮
+- **Análisis de sentimientos**: Detección del tono emocional del contenido
+- **Resúmenes automáticos**: Generación de abstracts del contenido
+- **Traducciones**: Transcripción multiidioma
+- **Exportación podcast-ready**: Optimización automática para distribución
+
 ## 📄 Licencia
 
 [MIT License](LICENSE) - Siéntete libre de usar y modificar.
@@ -139,4 +167,4 @@ lil-audio-extractor/
 
 **Desarrollado con ❤️ usando SwiftUI y AVFoundation**
 
-*Última actualización: Enero 2025* 
+*Última actualización: Junio 2025* 
