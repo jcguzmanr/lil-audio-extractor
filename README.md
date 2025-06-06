@@ -125,7 +125,7 @@ lil-audio-extractor/
 - **Segmentación automática**: División en capítulos o secciones basada en el contenido
 - **Compresión inteligente**: Reducir duración manteniendo información relevante
 
-### **Fase 3: PBB3 - Transcripción con AI** 🤖
+### **Fase 3: MVP 2.0 - Transcripción con AI** 🤖
 - **Integración con AI**: Implementación de modelos de speech-to-text de última generación
 - **Transcripción automática**: Conversión completa de audio a texto
 - **Detección de idiomas**: Soporte multiidioma automático
