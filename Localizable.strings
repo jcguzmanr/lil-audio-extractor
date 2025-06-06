@@ -1,0 +1,51 @@
+/* Video Audio Extractor - Localization Strings */
+
+/* Main UI */
+"app.title" = "Video → Audio Extractor";
+"drag.instruction" = "Arrastra un video aquí";
+"or" = "o";
+"select.file" = "Seleccionar archivo";
+"supported.formats" = "Formatos soportados: MP4, MOV, M4V, AVI";
+
+/* States */
+"validating" = "Validando archivo...";
+"processing" = "Extrayendo audio...";
+"cancel" = "Cancelar";
+"done.instruction" = "Arrastra el archivo al Finder para guardarlo";
+"start.over" = "Empezar de Nuevo";
+
+/* Actions */
+"save.as" = "Guardar Como...";
+"show.finder" = "Mostrar en Finder";
+"share" = "Compartir";
+"close" = "Cerrar";
+"format" = "Formato:";
+
+/* File Operations */
+"audio.extracted" = "Archivo de audio extraído";
+
+/* Errors */
+"error.no_audio" = "El video no contiene pista de audio";
+"error.unsupported" = "Formato de video no soportado";
+"error.export_failed" = "Error al exportar";
+"error.insufficient_space" = "Espacio insuficiente en disco";
+"error.permission_denied" = "Permisos insuficientes para acceder al archivo";
+"error.loading_file" = "Error al cargar archivo";
+"error.no_url" = "No se pudo obtener la URL del archivo";
+"error.no_access" = "No se pudo acceder al archivo seleccionado";
+"error.save_failed" = "Error al guardar archivo";
+"error.unknown" = "Error desconocido";
+
+/* Accessibility */
+"accessibility.drop_zone" = "Zona de arrastre para archivos de video";
+"accessibility.validating" = "Validando archivo de video";
+"accessibility.processing" = "Procesando audio, %d por ciento completado";
+"accessibility.audio_ready" = "Audio extraído exitosamente: %@";
+
+/* Menu */
+"menu.open_video" = "Abrir Video...";
+"menu.about" = "Acerca de Video → Audio Extractor";
+
+/* About */
+"about.version" = "Versión 1.0";
+"about.description" = "Convierte archivos de video a audio de forma sencilla.\n\nDesarrollado con SwiftUI y AVFoundation para macOS 14+"; 
