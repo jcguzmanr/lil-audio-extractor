@@ -18,6 +18,7 @@ class AudioExtractorViewModel: ObservableObject {
     @Published var isDragOver: Bool = false
     @Published var progress: Double = 0.0
     @Published var selectedFormat: AudioExportFormat = .m4a
+    @Published var normalizeVolume: Bool = false
     
     private let exporter = VideoAudioExporter()
     private var cancellables = Set<AnyCancellable>()
@@ -135,7 +136,9 @@ class AudioExtractorViewModel: ObservableObject {
             
             // Export audio
             print("🎵 [DEBUG] Starting audio export with format: \(selectedFormat)")
-            let audioURL = try await exporter.exportAudio(from: url, format: selectedFormat)
+            let audioURL = try await exporter.exportAudio(from: url,
+                                                         format: selectedFormat,
+                                                         normalizeVolume: normalizeVolume)
             
             print("✅ [DEBUG] Audio export completed: \(audioURL)")
             appState = .done(audioURL)

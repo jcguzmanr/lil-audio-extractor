@@ -94,7 +94,9 @@ class VideoAudioExporter: ObservableObject {
     }
     
     // MARK: - Audio Export
-    func exportAudio(from videoURL: URL, format: AudioExportFormat = .m4a) async throws -> URL {
+    func exportAudio(from videoURL: URL,
+                     format: AudioExportFormat = .m4a,
+                     normalizeVolume: Bool = false) async throws -> URL {
         print("🎵 [DEBUG] Starting audio export from: \(videoURL)")
         print("🎵 [DEBUG] Target format: \(format)")
         
@@ -161,6 +163,10 @@ class VideoAudioExporter: ObservableObject {
             switch exportSession.status {
             case .completed:
                 print("✅ [DEBUG] Export completed successfully")
+                if normalizeVolume {
+                    print("🎚️ [DEBUG] Normalizing audio volume...")
+                    try normalizeAudio(at: outputURL)
+                }
                 return outputURL
             case .failed:
                 print("❌ [DEBUG] Export failed")
@@ -221,4 +227,42 @@ class VideoAudioExporter: ObservableObject {
         isExporting = false
         progress = 0.0
     }
-} 
+
+    private func normalizeAudio(at url: URL) throws {
+        let file = try AVAudioFile(forReading: url)
+        let format = file.processingFormat
+        guard let buffer = AVAudioPCMBuffer(pcmFormat: format,
+                                            frameCapacity: AVAudioFrameCount(file.length)) else {
+            throw ExportError.exportFailed("No se pudo leer el audio")
+        }
+
+        try file.read(into: buffer)
+
+        guard let channelData = buffer.floatChannelData else { return }
+        let channelCount = Int(format.channelCount)
+        let frameLength = Int(buffer.frameLength)
+        var maxSample: Float = 0.0
+
+        for channel in 0..<channelCount {
+            let data = channelData[channel]
+            for frame in 0..<frameLength {
+                let sample = data[frame]
+                if abs(sample) > maxSample { maxSample = abs(sample) }
+            }
+        }
+
+        if maxSample > 0 {
+            let scale = 1.0 / maxSample
+            for channel in 0..<channelCount {
+                let data = channelData[channel]
+                for frame in 0..<frameLength {
+                    data[frame] *= scale
+                }
+            }
+        }
+
+        try? FileManager.default.removeItem(at: url)
+        let outputFile = try AVAudioFile(forWriting: url, settings: file.fileFormat.settings)
+        try outputFile.write(from: buffer)
+    }
+}

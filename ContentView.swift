@@ -219,7 +219,7 @@ struct ContentView: View {
                 Text("Formato:")
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
-                
+
                 Picker("Formato de audio", selection: $viewModel.selectedFormat) {
                     ForEach(AudioExportFormat.allCases, id: \.self) { format in
                         Text(format.rawValue.uppercased())
@@ -229,7 +229,12 @@ struct ContentView: View {
                 .pickerStyle(.segmented)
                 .frame(width: 200)
             }
-            
+
+            Toggle("Normalizar Volumen", isOn: $viewModel.normalizeVolume)
+                .toggleStyle(.switch)
+                .font(.subheadline)
+                .padding(.leading, 20)
+
             Spacer()
             
             // Version info
