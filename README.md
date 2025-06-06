@@ -9,6 +9,7 @@ Una aplicación para macOS 14+ que permite arrastrar un archivo de video, extrae
 - **Múltiples formatos de salida**: M4A (por defecto), WAV, MP3
 - **Interfaz nativa de macOS** con SwiftUI
 - **Progreso en tiempo real** durante la exportación
+- **Normalización de volumen** opcional
 - **Compartir y guardar** con integración nativa del sistema
 - **Accesibilidad completa** con soporte VoiceOver
 
